@@ -70,7 +70,7 @@ The following commands IDs are available:
 0x0f - Update Brightness (short brightness)
 0x10 - Get Brightness
 0x15 - Reset SD Card (not tested! clone your SD card before testing!)
-0x17 - Send Partial Image (takes 4 unknown bytes, related to something with the image rect)
+0x17 - Send Partial Image (x,y,w,h)
 0x20 - Get LCD version
 ```
 
@@ -105,6 +105,43 @@ When sending images, the actual image data has to be preceeded by a "Send Image"
 |         The option can be toggled in the mobile app   |
 |                                                       |
 |=======================================================|
+
+=========================================================
+| Name    | Exercise                                    |
+=========================================================
+| Cmd ID  | 0x02                                        |
+=========================================================
+| Format  [0x02,0x00,0x00,0x00,0x00,0x00,EID,EID]       |
+|                                                       |
+| EID = Exercise ID (2 bytes, little endian)            |
+|                                                       |
+=========================================================
+
+=========================================================
+| Name    | Update Brightness                           |
+=========================================================
+| Cmd ID  | 0x0F (15)                                   |
+=========================================================
+| Format  [0x02,0x00,0x00,0x00,0x00,0x00,BR,BR]         |
+|                                                       |
+| BR = Brightness (2 bytes, little endian)              |
+| (TODO: Determine range)                               |
+=========================================================
+
+=========================================================
+| Name    | Send Partial Image                          |
+=========================================================
+| Cmd ID  | 0x17 (23)                                   |
+=========================================================
+| Format  [0x17,0x00,0x02,0x00,x,y,w,h]                 |
+|                                                       |
+| x,y - Destination of the partial image                |
+| w,h - Width and Height of the partial image           |
+| The function of the short at index[2] and index[3]    |
+| with the hardcoded value 0x0002 is yet to be          |
+| determined.                                           |
+|                                                       |
+=========================================================
 
 ```
 

@@ -57,21 +57,21 @@ All commands are 8 bytes long and has the general form:
 The following commands IDs are available:
 
 ```
-0x01 - Send Image
-0x02 - Exercise (short exercise_id)
-0x05 - Next Step
-0x06 - Previous Step
-0x07 - Replay Steps
-0x08 - Get SD Id
-0x09 - Get System Version
-0x0a - Animation Speed Toggle
-0x0b - Get Animation Speed
-0x0c - Get "Where Am I" (This sounds creepy. TODO: investigate!)
-0x0f - Update Brightness (short brightness)
-0x10 - Get Brightness
-0x15 - Reset SD Card (not tested! clone your SD card before testing!)
-0x17 - Send Partial Image (x,y,w,h)
-0x20 - Get LCD version
+0x01 (01) - Send Image
+0x02 (02) - Exercise (short exercise_id)
+0x05 (05) - Next Step
+0x06 (06) - Previous Step
+0x07 (07) - Replay Steps
+0x08 (08) - Get SD Id
+0x09 (09) - Get System Version
+0x0a (10) - Animation Speed Toggle
+0x0b (11) - Get Animation Speed
+0x0c (12) - Get "Where Am I" (Response = "OK_12_00_00_00_00_00" !?)
+0x0f (15) - Update Brightness (short brightness)
+0x10 (16) - Get Brightness
+0x15 (21) - Reset SD Card (not tested! clone your SD card before testing!)
+0x17 (23) - Send Partial Image (x,y,w,h)
+0x20 (32) - Get LCD version
 ```
 
 Unless indicated in the above list, the commands has no arguments besides the command id. The rest of the 8 commands bytes are then set to 0x00.
@@ -150,7 +150,7 @@ When sending images, the actual image data has to be preceeded by a "Send Image"
 
 All responses are send as a notification from the GATT characteristic and are in ASCII form. 
 
-Most commands reply with an "OK" if they are successfull.
+Most commands reply with an "OK_nn" if they are successfull, where nn = Command ID in decimal.
 
 ***Sending images***
 

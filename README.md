@@ -146,13 +146,13 @@ When sending images, the actual image data has to be preceeded by a "Send Image"
 ```
 
 
-***Responses***
+###Responses
 
 All responses are send as a notification from the GATT characteristic and are in ASCII form. 
 
 Most commands reply with an "OK_nn" if they are successfull, where nn = Command ID in decimal.
 
-***Sending images***
+###Sending images
 
 Images needs to be transfered in 160 x 128 pixels in RGB565 format. A single pixel thus takes up two bytes:
 

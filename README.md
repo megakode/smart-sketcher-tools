@@ -56,6 +56,7 @@ All commands are 8 bytes long and has the general form:
 
 The following commands IDs are available:
 
+```
 0x01 - Send Image
 0x02 - Exercise (short exercise_id)
 0x05 - Next Step
@@ -71,9 +72,11 @@ The following commands IDs are available:
 0x15 - Reset SD Card (not tested! clone your SD card before testing!)
 0x17 - Send Partial Image (takes 4 unknown bytes, related to something with the image rect)
 0x20 - Get LCD version
+```
 
-Unless indicated in the above list, the commands has no arguments besides the command id.
+Unless indicated in the above list, the commands has no arguments besides the command id. The rest of the 8 commands bytes are then set to 0x00.
 
+When sending images, the actual image data has to be preceeded by a "Send Image" command. More info in the "Sending Images" section below.
 
 ```
 =========================================================

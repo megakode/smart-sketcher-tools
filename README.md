@@ -9,6 +9,8 @@ Use the tools directly or build your own app/tool upon the protocol specificatio
 
 Have fun, and enjoy this otherwise nice little toy.
 
+![Screenshot from 2023-01-02 23-25-49](https://user-images.githubusercontent.com/6302832/210282020-5abcaa71-a610-4081-a491-e6b642a2b26a.png)
+
 ![signal-2023-01-02-230907_002](https://user-images.githubusercontent.com/6302832/210281247-6e95173e-d4c7-411a-96ca-63e872e91160.jpeg)
 
 _Note: Not actually running Wolf on the projector, but something interactive is on my TODO list :)_

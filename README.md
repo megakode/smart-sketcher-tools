@@ -1,5 +1,5 @@
-# smart-sketcher-tools
-Tools and protocol specifications for the smART Sketcher Projecter 2.0
+# Smart Sketcher Tools
+Tools and protocol specifications for the ***smART Sketcher Projecter 2.0***
 
 If you bought your kid the above mentioned device, you probably got really angry when you opened the app and discovered the outrages monthly prices they tried to get you to pay, just for a tiny bunch of clip art images, which there are thousands of freely available on the internet (i.e. http://clipart-library.com/).
 

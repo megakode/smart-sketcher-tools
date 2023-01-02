@@ -33,13 +33,84 @@ bleak
 
 # Protocol specification
 
-***BLE***
+### BLE
 
 All interaction with the device (both sending commands, image data and receiving notifications), is done using the following BLE characteristic:
 
 ```0000ffe3-0000-1000-8000-00805f9b34fb```
 
-The device generally takes a command and then sends a notification back as an answer. Most commands just answer with a status message in plain ascii: `OK`
+
+### Commands
+
+All commands are 8 bytes long and has the general form:
+
+```
+========================================
+| # Bytes | Description                |
+========================================
+|    2    | Command ID (Little endian) |
+========================================
+|    6    | Command parameters         |
+========================================
+```
+
+The following commands IDs are available:
+
+0x01 - Send Image
+0x02 - Exercise (short exercise_id)
+0x05 - Next Step
+0x06 - Previous Step
+0x07 - Replay Steps
+0x08 - Get SD Id
+0x09 - Get System Version
+0x0a - Animation Speed Toggle
+0x0b - Get Animation Speed
+0x0c - Get "Where Am I" (This sounds creepy. TODO: investigate!)
+0x0f - Update Brightness (short brightness)
+0x10 - Get Brightness
+0x15 - Reset SD Card (not tested! clone your SD card before testing!)
+0x17 - Send Partial Image (takes 4 unknown bytes, related to something with the image rect)
+0x20 - Get LCD version
+
+Unless indicated in the above list, the commands has no arguments besides the command id.
+
+
+```
+=========================================================
+| Name    | Send Image                                  |
+=========================================================
+| Cmd ID  | 01                                          |
+=========================================================
+| Format  | [0x01,0x00,0x00,0x00,  *4,0x00,  *6,0x00]   |     
+=========================================================
+| Example | [0x01,0x00,0x00,0x00,0x50,0x00,0x01,0x00]   |
+| Notes   | *4 = In the app there is some logic looking |
+|           at an unknown parameter:                    |
+|           cmd[4] = i >= 160 ? (byte) -96 : (byte) 80; |
+|                                                       |
+|           *6 = Image comp.                            |
+|                if (useImageTransferComp) {            |
+|                   cmd[6] = 1;                         |
+|                 } else {                              |
+|                   if (chipset == Chipset.HM_17) {     |
+|                     cmd[6] = Byte.MIN_VALUE;          |
+|                   } else {                            |
+|                     cmd[6] = 2;                       |
+|                   }                                   |
+|                 }                                     |
+|                                                       |
+|         The option can be toggled in the mobile app   |
+|                                                       |
+|=======================================================|
+
+```
+
+
+***Responses***
+
+All responses are send as a notification from the GATT characteristic and are in ASCII form. 
+
+Most commands reply with an "OK" if they are successfull.
 
 ***Sending images***
 

@@ -1,9 +1,19 @@
 # Smart Sketcher Tools
-Tools and protocol specifications for the ***smART Sketcher Projecter 2.0***
+Unofficial Python tools and protocol specifications for the ***smART Sketcher Projecter 2.0***
 
 If you bought your kid the above mentioned device, you probably got really angry when you opened the app and discovered the outrages monthly prices they tried to get you to pay, just for a tiny bunch of clip art images, which there are thousands of freely available on the internet (i.e. http://clipart-library.com/).
 
-For you, the angry parent, i hereby give you a free alternative ❤️, for you to either use directly or build your own app/tool upon.
+For you, the angry parent, i hereby give you a free alternative ❤️ 
+
+Use the tools directly or build your own app/tool upon the protocol specifications.
+
+Have fun, and enjoy this otherwise nice little toy.
+
+![signal-2023-01-02-230907_002](https://user-images.githubusercontent.com/6302832/210281247-6e95173e-d4c7-411a-96ca-63e872e91160.jpeg)
+
+_Note: Not actually running Wolf on the projector, but something interactive is on my TODO list :)_
+
+
 
 # Tool usage
 
